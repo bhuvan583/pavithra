@@ -1,0 +1,263 @@
+sudo apt update
+sudo apt install scala
+
+
+
+scala -version
+
+nano HelloWorld.scala
+
+object HelloWorld {
+    def main(args: Array[String]): Unit = {
+        println("Hello, Scala!")
+    }
+}
+
+
+scalac HelloWorld.scala
+
+scala HelloWorld
+
+
+<!-- pom.xml for the Parent Project -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>data-engineering</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>data-processing</module>
+        <module>data-storage</module>
+        <module>etl</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Common dependencies across modules -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_2.12</artifactId>
+                <version>3.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
+
+
+
+
+
+<!-- data-processing/pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>data-engineering</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>data-processing</artifactId>
+
+    <dependencies>
+        <!-- Dependency for Apache Spark processing -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.12</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+    </dependencies>
+</project>
+
+
+
+
+<!-- data-storage/pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>data-engineering</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>data-storage</artifactId>
+
+    <dependencies>
+        <!-- Dependency for JDBC or MongoDB, for example -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+    </dependencies>
+</project>
+
+
+
+
+
+<!-- etl/pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>data-engineering</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>etl</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>data-processing</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>data-storage</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>
+
+
+TABLEAU
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed Tableau Dashboard</title>
+</head>
+<body>
+  <div id="tableauViz"></div>
+
+  <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.8.0.min.js"></script>
+
+  <script type="text/javascript">
+    var viz;
+
+    // Function to initialize the Tableau dashboard
+    function initViz() {
+      var containerDiv = document.getElementById("tableauViz");
+      var url = "https://public.tableau.com/views/YourVizLinkHere";  // Replace with your Tableau URL
+      var options = {
+        width: "100%",
+        height: "800px",
+        hideTabs: true,
+        onFirstInteractive: function () {
+          console.log("Tableau Viz is ready!");
+        }
+      };
+
+      viz = new tableau.Viz(containerDiv, url, options);
+    }
+
+    // Run the function to load the visualization
+    window.onload = initViz;
+  </script>
+</body>
+</html>
+
+
+
+SONARQUBE
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>sonarqube-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>SonarQube Demo</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- Example dependencies (JUnit, for example) -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- SonarQube Plugin Configuration -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>  <!-- Ensure to use the latest version -->
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- SonarQube configuration -->
+    <properties>
+        <!-- Set the SonarQube server URL -->
+        <sonar.host.url>http://localhost:9000</sonar.host.url> <!-- Change the URL if using a different server -->
+        <sonar.projectKey>com.example:sonarqube-demo</sonar.projectKey>
+        <sonar.projectName>SonarQube Demo</sonar.projectName>
+        <sonar.projectVersion>1.0</sonar.projectVersion>
+
+        <!-- Optional configuration for exclusions -->
+        <sonar.exclusions>**/tests/*</sonar.exclusions> <!-- Exclude test classes if needed -->
+    </properties>
+
+</project>
+
+
+
+
+
+
