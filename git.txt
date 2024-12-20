@@ -1,0 +1,139 @@
+Microsoft Windows [Version 10.0.19045.2965]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ADMIN>git --version
+git version 2.47.1.windows.1
+
+C:\Users\ADMIN>git config
+error: no action specified
+
+C:\Users\ADMIN>git config --global user.name"bhuvan 583"
+error: invalid key: user.namebhuvan 583
+
+C:\Users\ADMIN>git config --global user.name"bhuvan 583-stack"
+error: invalid key: user.namebhuvan 583-stack
+
+C:\Users\ADMIN>git config --global usenr.name"git@github.com:bhuvan583/ostlab.git"
+
+C:\Users\ADMIN>git config --global user.name"bhuvan583"
+
+C:\Users\ADMIN>git config --global user.email"pavithrasidtharthan569@gmail.com"
+
+C:\Users\ADMIN>cd Desktop
+
+C:\Users\ADMIN\Desktop>cd github
+
+C:\Users\ADMIN\Desktop\github>git clone https://github.com/bhuvan583/ostlab.git
+Cloning into 'ostlab'...
+remote: Enumerating objects: 34, done.
+remote: Counting objects: 100% (34/34), done.
+remote: Compressing objects: 100% (31/31), done.
+remote: Total 34 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (34/34), 21.95 KiB | 725.00 KiB/s, done.
+Resolving deltas: 100% (6/6), done.
+
+C:\Users\ADMIN\Desktop\github>git init
+Initialized empty Git repository in C:/Users/ADMIN/Desktop/github/.git/
+
+C:\Users\ADMIN\Desktop\github>git checkout -b it
+Switched to a new branch 'it'
+
+C:\Users\ADMIN\Desktop\github>git add pavi.txt
+fatal: pathspec 'pavi.txt' did not match any files
+
+C:\Users\ADMIN\Desktop\github>git add "pavi.txt"
+fatal: pathspec 'pavi.txt' did not match any files
+
+C:\Users\ADMIN\Desktop\github>git add .
+warning: adding embedded git repository: ostlab
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> ostlab
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached ostlab
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config advice.addEmbeddedRepo false"
+
+C:\Users\ADMIN\Desktop\github>git commit -m "i am studying"
+[it (root-commit) 7b9fa8c] i am studying
+ 2 files changed, 1 insertion(+)
+ create mode 160000 ostlab
+ create mode 100644 pavi.txt.txt
+
+C:\Users\ADMIN\Desktop\github>git remote add origin https://github.com/bhuvan583/ostlab.git
+
+C:\Users\ADMIN\Desktop\github>git push origin it
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 256 bytes | 128.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'it' on GitHub by visiting:
+remote:      https://github.com/bhuvan583/ostlab/pull/new/it
+remote:
+To https://github.com/bhuvan583/ostlab.git
+ * [new branch]      it -> it
+
+C:\Users\ADMIN\Desktop\github>git checkout -b bro
+Switched to a new branch 'bro'
+
+C:\Users\ADMIN\Desktop\github>git add kishan.txt
+fatal: pathspec 'kishan.txt' did not match any files
+
+C:\Users\ADMIN\Desktop\github>git add .
+
+C:\Users\ADMIN\Desktop\github>git commit -m "i live in cbe"
+[bro ef7f29b] i live in cbe
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 kishan.txt.txt
+
+C:\Users\ADMIN\Desktop\github>git remote add origin https://github.com/bhuvan583/ostlab.git
+error: remote origin already exists.
+
+C:\Users\ADMIN\Desktop\github>git push origin bro
+fatal: unable to access 'https://github.com/bhuvan583/ostlab.git/': Could not resolve host: github.com
+
+C:\Users\ADMIN\Desktop\github>git push -u origin bro
+fatal: unable to access 'https://github.com/bhuvan583/ostlab.git/': Could not resolve host: github.com
+
+C:\Users\ADMIN\Desktop\github>git -u origin bro
+unknown option: -u
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
+           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
+           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+C:\Users\ADMIN\Desktop\github>git push origin bro
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 286 bytes | 143.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'bro' on GitHub by visiting:
+remote:      https://github.com/bhuvan583/ostlab/pull/new/bro
+remote:
+To https://github.com/bhuvan583/ostlab.git
+ * [new branch]      bro -> bro
+
+C:\Users\ADMIN\Desktop\github>sudo apt update
+'sudo' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\ADMIN\Desktop\github>cd ADMIN
+The system cannot find the path specified.
+
+C:\Users\ADMIN\Desktop\github>
