@@ -1,0 +1,545 @@
+import java.util.Scanner;
+
+public class MathOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Display menu for operations
+        System.out.println("Choose a mathematical operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+        System.out.print("Enter your choice (1-4): ");
+        int choice = scanner.nextInt();
+
+        // Input two numbers
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Perform the operation based on the user's choice
+        switch (choice) {
+            case 1:
+                System.out.println("Result: " + (num1 + num2));
+                break;
+            case 2:
+                System.out.println("Result: " + (num1 - num2));
+                break;
+            case 3:
+                System.out.println("Result: " + (num1 * num2));
+                break;
+            case 4:
+                if (num2 != 0) {
+                    System.out.println("Result: " + (num1 / num2));
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid operation.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+
+
+
+
+
+1.Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Web Page</h1>
+    </header>
+    <main>
+        <p>Hello! This is a simple HTML page created as an example.</p>
+        <p>Here are some useful links:</p>
+        <ul>
+            <li><a href="https://www.google.com" target="_blank">Google</a></li>
+            <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Web Page. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
+3.Register.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .btn {
+            width: 100%;
+            padding: 0.7rem;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/submit_registration" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <div class="footer">
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
+4.HelloServlet.java :Servlet Class
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+// Annotation to map this servlet to a URL
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    // Handles GET requests
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        // Setting the response type
+        response.setContentType("text/html");
+
+        // Writing the response
+        PrintWriter out = response.getWriter();
+        try {
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Hello Servlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Hello, Welcome to My Servlet!</h1>");
+            out.println("<p>This is a simple servlet example.</p>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
+    }
+}
+5.web.xml:Servlet Mapping
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <!-- Servlet Declaration -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
+
+
+
+
+
+
+
+integrate git with desktop and maven
+### **Procedure to Integrate Git with Desktop and Maven**
+
+Here’s a step-by-step guide to set up and integrate Git with your desktop and Maven for a smooth development workflow.
+
+---
+
+## **1. Install Required Tools**
+### Install Git
+- **For Windows**:
+  - Download Git from [git-scm.com](https://git-scm.com/).
+  - Install Git using the installer.
+  - Use Git Bash or any terminal to work with Git.
+
+- **For Linux**:
+  ```bash
+  sudo apt update
+  sudo apt install git
+  ```
+
+- **For macOS**:
+  - Install Git using Homebrew:
+    ```bash
+    brew install git
+    ```
+
+### Install Maven
+- **For Windows**:
+  - Download Maven from [Maven Downloads](https://maven.apache.org/download.cgi).
+  - Extract the ZIP file and configure the `MAVEN_HOME` environment variable.
+  - Add the `bin` directory of Maven to the system `PATH`.
+
+- **For Linux**:
+  ```bash
+  sudo apt update
+  sudo apt install maven
+  ```
+
+- **For macOS**:
+  ```bash
+  brew install maven
+  ```
+
+- Verify Maven Installation:
+  ```bash
+  mvn -version
+  ```
+
+---
+
+## **2. Configure Git**
+1. Open a terminal and configure Git with your credentials:
+   ```bash
+   git config --global user.name "Your Name"
+   git config --global user.email "youremail@example.com"
+   ```
+
+2. To verify the configuration:
+   ```bash
+   git config --list
+   ```
+
+3. Generate an SSH key (optional, for SSH-based Git operations):
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+   ```
+   - Copy the SSH key and add it to your Git hosting service (e.g., GitHub, GitLab).
+
+---
+
+## **3. Set Up a Maven Project**
+1. **Create a Maven Project**:
+   - Open a terminal and execute:
+     ```bash
+     mvn archetype:generate -DgroupId=com.example -DartifactId=myapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+     ```
+   - Replace `com.example` and `myapp` with your desired package and project names.
+
+2. **Navigate to Your Project Directory**:
+   ```bash
+   cd myapp
+   ```
+
+3. **Project Structure**:
+   ```
+   myapp/
+   ├── pom.xml
+   ├── src/
+       ├── main/
+           ├── java/
+           ├── resources/
+       ├── test/
+           ├── java/
+   ```
+
+---
+
+## **4. Initialize Git in Maven Project**
+1. Navigate to your Maven project directory:
+   ```bash
+   cd myapp
+   ```
+
+2. Initialize Git:
+   ```bash
+   git init
+   ```
+
+3. Create a `.gitignore` file for Maven to avoid committing unnecessary files:
+   ```bash
+   nano .gitignore
+   ```
+   Add the following content:
+   ```
+   target/
+   *.log
+   *.class
+   .idea/
+   *.iml
+   *.DS_Store
+   ```
+
+4. Add and commit the files:
+   ```bash
+   git add .
+   git commit -m "Initial Maven project setup"
+   ```
+
+---
+
+## **5. Connect to a Remote Git Repository**
+1. Create a repository on GitHub, GitLab, or any other Git hosting service.
+
+2. Link your local repository to the remote:
+   ```bash
+   git remote add origin https://github.com/username/repository.git
+   ```
+
+3. Push the code to the remote repository:
+   ```bash
+   git push -u origin main
+   ```
+
+---
+
+## **6. Add Maven Dependencies and Plugins**
+1. Open the `pom.xml` file in your Maven project.
+
+2. Add dependencies or plugins as needed. For example:
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <version>4.13.2</version>
+           <scope>test</scope>
+       </dependency>
+   </dependencies>
+   ```
+
+3. Build the project to download dependencies:
+   ```bash
+   mvn clean install
+   ```
+
+---
+
+## **7. Automate Builds with Git and Maven**
+1. **Add Build Commands to Git Hooks (Optional)**:
+   - Automate builds or tests on Git commits:
+     ```bash
+     nano .git/hooks/pre-commit
+     ```
+     Add:
+     ```bash
+     #!/bin/sh
+     mvn test
+     ```
+
+2. **Continuous Integration with GitHub Actions**:
+   - Create a `.github/workflows/maven.yml` file in your repository:
+     ```yaml
+     name: Java CI with Maven
+
+     on:
+       push:
+         branches:
+           - main
+
+     jobs:
+       build:
+         runs-on: ubuntu-latest
+
+         steps:
+         - name: Checkout code
+           uses: actions/checkout@v3
+
+         - name: Set up JDK
+           uses: actions/setup-java@v3
+           with:
+             java-version: '11'
+
+         - name: Build with Maven
+           run: mvn clean install
+     ```
+
+---
+
+## **8. Verify Integration**
+1. Clone your repository to another location and test the Maven build:
+   ```bash
+   git clone https://github.com/username/repository.git
+   cd repository
+   mvn clean install
+   ```
+
+2. Push changes to test synchronization:
+   ```bash
+   git add .
+   git commit -m "Test integration"
+   git push origin main
+   ```
+
+---
+
+### **Sample Output**
+- **Git Commit**:
+  ```
+  [main 1a2b3c4] Initial Maven project setup
+   5 files changed, 50 insertions(+)
+  ```
+
+- **Maven Build**:
+  ```
+  [INFO] Building myapp 1.0-SNAPSHOT
+  [INFO] ------------------------------------------------------------------------
+  [INFO] BUILD SUCCESS
+  ```
+
+- **GitHub Actions CI**:
+  ```
+  ✓ Java CI with Maven completed successfully
+  ```
+
+This setup ensures seamless integration of Git and Maven, allowing efficient project management and collaboration.
+
+
+SIMPLE JAVA
+// HelloWorld.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        // Print "Hello, World!" to the console
+        System.out.println("Hello, World!");
+    }
+}
+
+
+
+
+
+maven in intellij
+file,new,project,give project name,build system maven,choose jdk and give create after file opened go to file and then settings and plugins in installed go to maven (bundled) if not install next go to build,execution and deployment then bulid tools then click
+on maven click on use plugin registry then move to import choose jdk move to runner and give the same jdk then click apply and ok.project ready and run
